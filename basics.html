@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basics</title>
+   <style type="text/css">
+       * {
+                background-color: pink;
+       }
+        .titre{
+            color: white;
+            text-align: center;
+            font-size: 60px;
+        }
+        .column{
+            float: left;
+            display: inline;
+            width:40%;
+            padding: 10px;
+            /*object-fit: contain;*/
+        }
+        .column-small{
+            float: left;
+            display: inline;
+            width:5%;
+            padding: 5px;
+        }
+       .row::after {
+           content: "";
+           clear: both;
+           display: table;
+       }
+       img{
+           border-radius: 80px;
+           max-width: 100%;
+           height:auto;
+           display:inline-block;
+       }
+       p{
+           text-align: center;
+       }
+       p-f{
+           float:right;
+           text-align: right;
+           font-style: italic;
+           font-family: monospace;
+       }
+       .p-f::after{
+           content: "";
+           clear: right;
+       }
+
+   </style>
+</head>
+<body>
+<div class="titre">
+    <p>&coprod;&sum;&#9821;&#169;&bigcirc;&prod;&sum; TO &#8569;&#8569;&#8569;&#8569;&#8545;</p>
+</div>
+<div class="row">
+    <div class="column-small"></div>
+    <div class="column">
+        <img src="../images/ldlc_logo.jpg" alt="LDLC">
+        <a href="https://www.ldlc.com/"><p>LDLC</p></a>
+    </div>
+   <div class="column">
+        <img src="../images/amd_logo.svg" alt="AMD">
+        <a href="https://www.amd.com/en/shop/fr/Graphics%20Cards"><p>AMD</p></a>
+    </div>
+    <div class="column-small"></div>
+</div>
+<hr>
+<footer>
+    <p-f>&#169;hlo 2019</p-f>
+</footer>
+</body>
+</html>
