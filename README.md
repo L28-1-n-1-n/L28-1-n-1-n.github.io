@@ -24,4 +24,4 @@ Data Source : https://www.kaggle.com/START-UMD/gtd/data
 
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](https://raw.githubusercontent.com/L28-1-n-1-n/L28-1-n-1-n.github.io/master/LICENSE)
