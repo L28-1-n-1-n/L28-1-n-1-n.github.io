@@ -6,8 +6,7 @@ class Visualization {
     constructor () {
         d3.queue()
             .defer(d3.json, 'https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson') // World shape
-            // .defer(d3.csv, 'globalterrorismdb_0718dist.csv') // Position of circles, faster to render
-            .defer(d3.csv, "https://media.githubusercontent.com/media/L28-1-n-1-n/D3_Assignment/master/globalterrorismdb_0718dist.csv") // Position of circles, slower to render
+            .defer(d3.csv, 'https://raw.githubusercontent.com/L28-1-n-1-n/L28-1-n-1-n.github.io/master/globalterrorismdb_0718dist_reduced_version2.csv')
             .await(this.ready);
     }
 
@@ -30,7 +29,6 @@ class Visualization {
             var currentYear = 1970;
             var width = 1945;
             var height = 1500;
-
             var projection = d3.geoMercator()
                 .center([160, -75]) /** GPS of location to zoom on */
                 .scale(150) /** This is like the zoom */
@@ -85,27 +83,23 @@ class Visualization {
                 .attr('cy', function (d) {
                     return projection([+d.longitude, +d.latitude])[1];
                 })
-
                 // size of the circle is determined by the casualty of the attack
                 .attr('r', function (d) {
                     return size(+d.nkill);
                 })
-
                 // colour of the circle correspond to the type of the attack
                 .style('fill', function (d) {
                     return color(d.attacktype1);
                 })
-                .style('visibility', 'visible')
-
                 // highlight attacks with casualties greater than 2000, those are significant attacks
                 .attr('stroke', function (d) {
-                    if (d.nkill > 2000) {
+                    if (d.nkill > 200) {
                         return 'black';
                     } else {
                         return 'none';
                     }
                 })
-                .attr('stroke-width', 1)
+                .attr('stroke-width', 2)
                 .attr('fill-opacity', 0.4);
 
             // Add title and explanation
@@ -133,7 +127,7 @@ class Visualization {
 
             svg
                 .append('a')
-                .attr('xlink:href', './out/index.html')
+                .attr('xlink:href', 'https://l28-1-n-1-n.github.io/out/index.html')
                 .append('text')
                 .attr('text-anchor', 'end')
                 .style('fill', 'black')
@@ -192,7 +186,6 @@ class Visualization {
                 if (currentYear > 2017) {
                     currentYear = 2017;
                 }
-
                 // removing all outdated visualizations
                 d3.select('year_now').remove();
                 d3.selectAll('circle').remove();
@@ -219,7 +212,7 @@ class Visualization {
                         return color(d.attacktype1);
                     })
                     .attr('stroke', function (d) {
-                        if (d.nkill > 2000) {
+                        if (d.nkill > 200) {
                             return 'black';
                         } else {
                             return 'none';
@@ -318,7 +311,7 @@ class Visualization {
                 // Add legned: colour key for types of attack
 
                 var rectData = [
-                    { y: 30, colour: 1, attack_type: 'Assisination', id: 'Assisinatio' },
+                    { y: 30, colour: 1, attack_type: 'Assisination', id: 'Assisination' },
                     { y: 60, colour: 6, attack_type: 'Hostage Taking (Kidnapping)', id: 'Kidnapping' },
                     { y: 90, colour: 3, attack_type: 'Bombing/Explosion', id: 'BE' },
                     { y: 120, colour: 7, attack_type: 'Facility/Infrastructure Attack', id: 'FIA' },
