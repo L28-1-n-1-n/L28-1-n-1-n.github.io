@@ -14,7 +14,7 @@ Acquire a csv file with the following essential parameters:
 
 Year (stored in variable `iyear`)</br> 
 Event location in longitude and latitude (stored in variables `longitude` and `latitude`)</br>
-Number of casualties (stored in variable `nkill`)</br>
+Number of event participants (stored in variable `nkill`)</br>
 Variations on types of event (stored in variable `attacktype1`)</br>
 
 ## Sources:
